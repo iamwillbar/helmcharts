@@ -1,2 +1,0 @@
-# iamwillbar-charts
-Helm charts
