@@ -1,7 +1,10 @@
 # https://tomasvotruba.com/blog/2020/11/16/how-to-make-dynamic-matrix-in-github-actions/
 # https://stackoverflow.com/questions/10234327/convert-bash-ls-output-to-json-array/
 name: Build
-on: push
+on:
+  push:
+    branches:
+      - main
 jobs:
   discover-charts:
     name: Discover Charts
@@ -31,3 +34,21 @@ jobs:
         with:
           name: ${{ matrix.chart }}
           path: ./*.tgz
+  deploy-chart:
+    name: Deploy Chart
+    runs-on: ubuntu-latest
+    needs: build-chart
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          path: dist
+      - run: helm repo index --url https://iamwillbar.github.io/helmcharts/ .
+        working-directory: dist
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@4.2.3
+        with:
+          branch: gh-pages
+          folder: dist
