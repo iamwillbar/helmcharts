@@ -31,7 +31,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- with .Values.env }}
           env:
@@ -47,7 +47,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
         - name: {{ .Chart.Name }}-maxmindupdate
-          image: "{{ .Values.maxmindupdate.repository | default 'crazymax/geoip-updater' }}:{{ .Values.maxmindupdate.tag | default 'latest' }}"
+          image: "{{ .Values.maxmindupdate.repository | default "crazymax/geoip-updater" }}:{{ .Values.maxmindupdate.tag | default "latest" }}"
           imagePullPolicy: {{ .Values.maxmindupdate.pullPolicy }}
           {{- with .Values.maxmindupdate.env }}
           env:
