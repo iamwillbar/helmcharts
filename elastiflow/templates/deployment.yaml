@@ -27,6 +27,9 @@ spec:
       serviceAccountName: {{ include "elastiflow.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: shared-data
+          emptyDir: {}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -46,6 +49,9 @@ spec:
               protocol: UDP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: shared-data
+              mountPath: /data
         {{- with .Values.maxmindupdate }}
         - name: {{ $.Chart.Name }}-maxmindupdate
           image: "{{ .image.repository }}:{{ .image.tag }}"
@@ -59,6 +65,9 @@ spec:
           {{- end }}
           resources:
             {{- toYaml .resources | nindent 12 }}
+          volumeMounts:
+            - name: shared-data
+              mountPath: /data
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
