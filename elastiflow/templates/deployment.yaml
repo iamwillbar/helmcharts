@@ -31,7 +31,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- with .Values.env }}
           env:
@@ -46,10 +46,11 @@ spec:
               protocol: UDP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-        - name: {{ .Chart.Name }}-maxmindupdate
-          image: "{{ .Values.maxmindupdate.repository | default "crazymax/geoip-updater" }}:{{ .Values.maxmindupdate.tag | default "latest" }}"
-          imagePullPolicy: {{ .Values.maxmindupdate.pullPolicy }}
-          {{- with .Values.maxmindupdate.env }}
+        {{- with .Values.maxmindupdate }}
+        - name: {{ $.Chart.Name }}-maxmindupdate
+          image: "{{ .image.repository }}:{{ .image.tag }}"
+          imagePullPolicy: {{ .image.pullPolicy }}
+          {{- with .env }}
           env:
           {{- range $key, $value := . }}
             - name: {{ $key }}
@@ -57,7 +58,8 @@ spec:
           {{- end }}
           {{- end }}
           resources:
-            {{- toYaml .Values.maxmindupdate.resources | nindent 12 }}
+            {{- toYaml .resources | nindent 12 }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

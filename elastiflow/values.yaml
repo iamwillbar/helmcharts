@@ -299,3 +299,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+maxmindupdate:
+  image:
+    repository: crazymax/geoip-updater
+    tag: latest
+    pullPolicy: Always
+  resources: {}
