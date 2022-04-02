@@ -46,6 +46,18 @@ spec:
               protocol: UDP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        - name: {{ .Chart.Name }}-maxmindupdate
+          image: "{{ .Values.maxmindupdate.repository | default 'crazymax/geoip-updater' }}:{{ .Values.maxmindupdate.tag | default 'latest' }}"
+          imagePullPolicy: {{ .Values.maxmindupdate.pullPolicy }}
+          {{- with .Values.maxmindupdate.env }}
+          env:
+          {{- range $key, $value := . }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+          {{- end }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.maxmindupdate.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
