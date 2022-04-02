@@ -3,20 +3,20 @@ entries:
   elastiflow:
   - apiVersion: v2
     appVersion: 5.3.5
-    created: "2022-04-02T21:42:50.601267285Z"
+    created: "2022-04-02T21:43:17.306672408Z"
     description: A Helm chart for Kubernetes
-    digest: 940e4859217fdd1de91347537da0f31108468a49b5ec1d8f306ff29fe6f14eeb
+    digest: 339d274afebe1943ad497113ee09986c4f880aaa85293fa8e56a617c363153a8
     name: elastiflow
     type: application
     urls:
-    - https://iamwillbar.github.io/helmcharts/elastiflow/elastiflow-0.3.0.tgz
-    version: 0.3.0
+    - https://iamwillbar.github.io/helmcharts/elastiflow/elastiflow-0.4.0.tgz
+    version: 0.4.0
   kafka-connect:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-02T21:42:50.602122291Z"
+    created: "2022-04-02T21:43:17.307356922Z"
     description: A Helm chart for Kubernetes
-    digest: 9dc2b2117c644c107a4c9d65dfd560d1d3d5be8fca96a7e2e0ce6c34a08a0280
+    digest: 8948cd6964c550507f91312cfe385ae9bf15cf56f84bd2c0fbc2acfec91813d8
     name: kafka-connect
     type: application
     urls:
@@ -25,7 +25,7 @@ entries:
   n8n:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-02T21:42:50.632365097Z"
+    created: "2022-04-02T21:43:17.324577755Z"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -39,7 +39,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 10.2.0
     description: Node-based Workflow Automation Tool
-    digest: 414d1e9da3bdd1958bc12fc0859a4868b59ee20622f2103a7ca13490963226ff
+    digest: 56d011f94caf2386280b2a44f1142c5cc318843c72921955d8b7e25e14491991
     keywords:
     - n8n
     - workflow
@@ -52,4 +52,4 @@ entries:
     urls:
     - https://iamwillbar.github.io/helmcharts/n8n/n8n-0.1.0.tgz
     version: 0.1.0
-generated: "2022-04-02T21:42:50.599944976Z"
+generated: "2022-04-02T21:43:17.304484366Z"
