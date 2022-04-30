@@ -9,7 +9,7 @@ image:
   # -- image repository
   repository: n8nio/n8n
   # -- image tag
-  tag: "0.39.4"
+  tag: "0.174.0"
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -38,6 +38,8 @@ ingress:
 persistence:
   data:
     enabled: false
+    # storageClass: ""
+    # size: 1Gi
     mountPath: /home/node/.n8n
 
 # -- Enable and configure mariadb database subchart under this key.
@@ -55,6 +57,7 @@ mariadb:
     persistence:
       enabled: false
       # storageClass: ""
+      # size: 5Gi
 
 # -- Enable and configure postgresql database subchart under this key.
 #    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
@@ -70,3 +73,4 @@ postgresql:
   persistence:
     enabled: false
     # storageClass: ""
+    # size: 5Gi
