@@ -3,9 +3,9 @@ entries:
   elastiflow:
   - apiVersion: v2
     appVersion: 5.3.5
-    created: "2022-04-02T21:43:17.306672408Z"
+    created: "2022-04-30T21:31:07.529055946Z"
     description: A Helm chart for Kubernetes
-    digest: 339d274afebe1943ad497113ee09986c4f880aaa85293fa8e56a617c363153a8
+    digest: 8070add63a707d5ba8a1baf99dcbd3bf7241ba38ba9cb55bf65c95cdb9461aa2
     name: elastiflow
     type: application
     urls:
@@ -14,9 +14,9 @@ entries:
   kafka-connect:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-02T21:43:17.307356922Z"
+    created: "2022-04-30T21:31:07.529785074Z"
     description: A Helm chart for Kubernetes
-    digest: 8948cd6964c550507f91312cfe385ae9bf15cf56f84bd2c0fbc2acfec91813d8
+    digest: f026f45381640de926888ce89b135d167aeb2ece4891ea4f29fddea90a8cd147
     name: kafka-connect
     type: application
     urls:
@@ -24,22 +24,22 @@ entries:
     version: 0.1.0
   n8n:
   - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-04-02T21:43:17.324577755Z"
+    appVersion: 0.174.0
+    created: "2022-04-30T21:31:07.553129793Z"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
-      version: 4.3.0
+      version: 4.4.0
     - condition: postgresql.enabled
       name: postgresql
       repository: https://charts.bitnami.com/bitnami
-      version: 10.14.4
+      version: 11.1.25
     - condition: mariadb.enabled
       name: mariadb
       repository: https://charts.bitnami.com/bitnami
-      version: 10.2.0
+      version: 11.0.2
     description: Node-based Workflow Automation Tool
-    digest: 56d011f94caf2386280b2a44f1142c5cc318843c72921955d8b7e25e14491991
+    digest: d08bff3ef03ca81c62e86aab83a93e80378cc8e3ca4eea898690813265df36f6
     keywords:
     - n8n
     - workflow
@@ -50,6 +50,6 @@ entries:
     name: n8n
     type: application
     urls:
-    - https://iamwillbar.github.io/helmcharts/n8n/n8n-0.1.0.tgz
-    version: 0.1.0
-generated: "2022-04-02T21:43:17.304484366Z"
+    - https://iamwillbar.github.io/helmcharts/n8n/n8n-0.174.0.tgz
+    version: 0.174.0
+generated: "2022-04-30T21:31:07.526398441Z"
